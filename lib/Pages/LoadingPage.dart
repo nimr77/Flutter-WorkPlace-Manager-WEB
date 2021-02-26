@@ -2,8 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:my_work_manager/Pages/HomePAge.dart';
 import 'package:my_work_manager/Pages/LoginPage.dart';
 import 'package:my_work_manager/generated/l10n.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../Auth/MyFirebaseAuth.dart';
 
@@ -48,8 +50,8 @@ class _MyLoadingScreenState extends State<MyLoadingScreen> {
       else {
         await Future.wait(MyLoadingScreen.loaders);
 
-        // Navigator.pushReplacement(
-        //     context, CupertinoPageRoute(builder: (context) => HomePage()));
+        Navigator.pushReplacement(context,
+            PageTransition(child: HomePage(), type: PageTransitionType.fade));
       }
     });
 
